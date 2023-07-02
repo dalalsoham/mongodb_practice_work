@@ -86,13 +86,19 @@ const createDocument = async () =>{
    }
 }
 
-// createDocument();
+// createDocument(); //here we 1st define the function and then call the value in the last
 
 //read data in this process
 const getDocument = async () => {
-   const result = await Playlist.find({ctype: "Front End"}).select({name: 1});//specifi
+   try{
+      const result = await Playlist.find({ctype: "Front End"})
+   .select({name: 1})
+   .limit(1);//specifie here using  the type of the element you want also set here the limit you want to show the data
    console.log(result);
+   }catch(err){
+      console.log(err);
+   }
 }
 
-getDocument();
+getDocument(); //also 1st define the fn and then call the fn at the last.
 
